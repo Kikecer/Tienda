@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cajero Simulado</title>
+</head>
+<body>
+<script>
+    // Paso 1: Inicializar variables
+    let saldo = 1000;
+
+    // Mostrar menú de opciones
+    let opcion = prompt(
+        "Bienvenido al cajero\n" +
+        "1. Consultar saldo\n" +
+        "2. Retirar dinero\n" +
+        "3. Depositar dinero\n" +
+        "Ingrese el número de la opción:"
+    );
+
+    // Paso 2 y 3: Capturar elección y condicionales
+    if (opcion === "1") {
+        alert("Su saldo actual es: $" + saldo);
+    } else if (opcion === "2") {
+        let monto = prompt("¿Cuánto desea retirar?");
+        monto = Number(monto);
+        if (isNaN(monto) || monto <= 0) {
+            alert("Monto inválido. Debe ingresar un número mayor a cero.");
+        } else if (monto > saldo) {
+            alert("Fondos insuficientes.");
+        } else {
+            saldo -= monto;
+            alert("Retiro exitoso. Su saldo restante es: $" + saldo);
+        }
+    } else if (opcion === "3") {
+        let monto = prompt("¿Cuánto desea depositar?");
+        monto = Number(monto);
+        if (isNaN(monto) || monto <= 0) {
+            alert("Monto inválido. Debe ingresar un número mayor a cero.");
+        } else {
+            saldo += monto;
+            alert("Depósito exitoso. Su nuevo saldo es: $" + saldo);
+        }
+    } else {
+        alert("Opción inválida.");
+    }
+</script>
+</body>
+</html>
